@@ -4,6 +4,8 @@
 
     <h1>Rock, Paper, Sciccors </h1>
 
+    <h2 id="result">  </h2>
+
     <h3>
     <i class="fa fa-2x fa-fw" v-bind:class="computedUser"></i>
     <i class="fa fa-2x fa-fw" v-bind:class="computedRand"></i>
@@ -49,7 +51,8 @@ export default {
             userPick: null,
             randPick: null,
             userScore: 0,
-            computerScore: 0
+            computerScore: 0,
+            result: ''
     };
   },
   methods: {
@@ -63,24 +66,42 @@ export default {
       if (this.userPick == 'rock') {
         if (this.randPick == 'paper') {
           console.log('Computer wins');
+          alert('Computer wins');
           this.computerScore++;
         } else if (this.randPick == 'scissors') {
           console.log('User wins');
+          alert('User wins');
           this.userScore++;
         } else {
           console.log('Draw');
+          alert('Draw');
         }
       } else if (this.userPick == 'paper') {
         if (this.randPick == 'rock') {
           console.log('User wins');
-
+          alert('User wins');
           this.userScore++;
         } else if (this.randPick == 'scissors') {
           console.log('Computer wins');
+          alert('Computer wins');
           this.computerScore++;
         } else {
           console.log('Draw');
-       }
+          alert('Draw');
+        }
+      } else {
+        if (this.randPick == 'rock') {
+          console.log('Computer wins');
+          alert('Computer wins');
+          this.computerScore++;
+        } else if (this.randPick == 'paper') {
+          console.log('User wins');
+          alert('User wins');
+          this.userScore++;
+        } else {
+          console.log('Draw');
+          alert('Draw');
+        }
       }
     }
   },
