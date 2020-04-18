@@ -2,34 +2,47 @@
     
 <section id="RockPaperSciccorsContainer">
 
-    <h1>Rock, Paper, Sciccors </h1>
+    <h1>Beat the Computer At Rock, Paper, Sciccors!</h1>
 
-    <h2 id="result">  </h2>
+  
 
     <h3>
     <i class="fa fa-2x fa-fw" v-bind:class="computedUser"></i>
     <i class="fa fa-2x fa-fw" v-bind:class="computedRand"></i>
   </h3>
 
-  <div>
-    <button @click="choose('rock')">
+  <div id="ButtonContainer">
+
+    <div class="thumbnail-title">
+      <h5>Choose Rock!</h5>
+
+        <button @click="choose('rock')">
       <figure>
           <img class="thumbnail" src="../assets/img/rock.png">
       </figure>
     </button>
+    </div>
 
+  <div class="thumbnail-title">
+    <h5 class="thumbnail-title">Choose Paper!</h5>
+ 
     <button @click="choose('paper')">
         <figure>
           <img class="thumbnail" src="../assets/img/paper.png">
       </figure>
     </button>
+    </div>
 
+  <div class="thumbnail-title">
+    <h5 class="thumbnail-title">Choose Scissors!</h5>
     <button @click="choose('scissors')">
          <figure>
           <img class="thumbnail" src="../assets/img/scissors.png">
       </figure>
     </button>
+    </div>
   </div>
+
   <h3>{{ userScore }} - {{ computerScore }}</h3>
 
 </section>
@@ -52,7 +65,7 @@ export default {
             randPick: null,
             userScore: 0,
             computerScore: 0,
-            result: ''
+            
     };
   },
   methods: {
@@ -142,7 +155,17 @@ export default {
 
 .thumbnail  {
 
-    height: 100px;
+    height: 150px;
     width: auto;
+}
+
+#ButtonContainer  {
+    display: flex;
+    flex-direction: row;
+}
+
+.thumbnail-title  {
+    display: flex;
+    flex-direction: column;
 }
 </style>
