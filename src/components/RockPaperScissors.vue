@@ -1,0 +1,127 @@
+<template>
+    
+<section id="RockPaperSciccorsContainer">
+
+    <h1>Rock, Paper, Sciccors </h1>
+
+    <h3>
+    <i class="fa fa-2x fa-fw" v-bind:class="computedUser"></i>
+    <i class="fa fa-2x fa-fw" v-bind:class="computedRand"></i>
+  </h3>
+
+  <div>
+    <button @click="choose('rock')">
+      <figure>
+          <img class="thumbnail" src="../assets/img/rock.png">
+      </figure>
+    </button>
+
+    <button @click="choose('paper')">
+        <figure>
+          <img class="thumbnail" src="../assets/img/paper.png">
+      </figure>
+    </button>
+
+    <button @click="choose('scissors')">
+         <figure>
+          <img class="thumbnail" src="../assets/img/scissors.png">
+      </figure>
+    </button>
+  </div>
+  <h3>{{ userScore }} - {{ computerScore }}</h3>
+
+</section>
+
+</template>
+
+
+
+<script>
+
+
+export default {
+    name: 'RockPaperSciccors',
+    components: {
+        
+    },
+    data () {
+        return {
+            userPick: null,
+            randPick: null,
+            userScore: 0,
+            computerScore: 0
+    };
+  },
+  methods: {
+    choose: function (pick) {
+      this.userPick = pick;
+      const picks = ['rock', 'paper', 'scissors'];
+      this.randPick = picks[Math.floor(Math.random() * picks.length)];
+      this.setScore();
+    },
+    setScore: function () {
+      if (this.userPick == 'rock') {
+        if (this.randPick == 'paper') {
+          console.log('Computer wins');
+          this.computerScore++;
+        } else if (this.randPick == 'scissors') {
+          console.log('User wins');
+          this.userScore++;
+        } else {
+          console.log('Draw');
+        }
+      } else if (this.userPick == 'paper') {
+        if (this.randPick == 'rock') {
+          console.log('User wins');
+
+          this.userScore++;
+        } else if (this.randPick == 'scissors') {
+          console.log('Computer wins');
+          this.computerScore++;
+        } else {
+          console.log('Draw');
+       }
+      }
+    }
+  },
+  computed: {
+    computedUser: function () {
+      return {
+        "fa-circle-o-notch fa-spin": this.userPick === null,
+        "fa-hand-rock-o": this.userPick === "rock",
+        "fa-hand-paper-o": this.userPick === "paper",
+        "fa-hand-scissors-o": this.userPick === "scissors"
+      };
+    },
+    computedRand: function () {
+      return {
+        "fa-circle-o-notch fa-spin": this.randPick === null,
+        "fa-hand-rock-o": this.randPick === "rock",
+        "fa-hand-paper-o": this.randPick === "paper",
+        "fa-hand-scissors-o": this.randPick === "scissors"
+      };
+    }
+  }
+};
+</script>
+
+
+
+<style>
+#RockPaperSciccorsContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+}
+
+.thumbnail  {
+
+    height: 100px;
+    width: auto;
+}
+</style>
