@@ -9,11 +9,11 @@
     <div class="thumbnail-title">
       <h5>Choose Rock!</h5>
 
-        <button @click="choose('rock')">
+      <button @click="choose('rock')">
       <figure>
           <img class="thumbnail" src="../assets/img/rock.png">
       </figure>
-    </button>
+      </button>
     </div>
 
   <div class="thumbnail-title">
@@ -36,13 +36,11 @@
     </div>
   </div>
 
-  <h3>{{ userScore }} - {{ computerScore }}</h3>
+  <h3 class="score">{{ userScore }} - {{ computerScore }}</h3>
 
 </section>
 
 </template>
-
-
 
 <script>
 export default {
@@ -126,8 +124,6 @@ export default {
 };
 </script>
 
-
-
 <style>
 #RockPaperSciccorsContainer {
   height: 100vh;
@@ -138,6 +134,7 @@ export default {
   align-items: center;
   margin: 0 auto;
   font-family: "Open Sans", sans-serif;
+  
 }
 
 .thumbnail  {
@@ -154,5 +151,12 @@ export default {
 .thumbnail-title  {
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
 }
+
+.score  {
+  font-size: 2rem;
+}
+
+
 </style>

@@ -12,18 +12,22 @@ export default {
   components: {
     RockPaperScissors
   }
+
+  
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   margin-top: 60px;
-  background-color: paleturquoise;
+	background-image: linear-gradient(45deg, rgb(53, 77, 116), rgb(84, 125, 157));
+	z-index: -1;
+
  
 }
 </style>
