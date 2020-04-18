@@ -4,13 +4,6 @@
 
     <h1>Beat the Computer At Rock, Paper, Scissors!</h1>
 
-  
-
-    <h3>
-    <i class="fa fa-2x fa-fw" v-bind:class="computedUser"></i>
-    <i class="fa fa-2x fa-fw" v-bind:class="computedRand"></i>
-  </h3>
-
   <div id="ButtonContainer">
 
     <div class="thumbnail-title">
@@ -52,20 +45,14 @@
 
 
 <script>
-
-
 export default {
     name: 'RockPaperSciccors',
-    components: {
-        
-    },
     data () {
         return {
             userPick: null,
             randPick: null,
             userScore: 0,
             computerScore: 0,
-            
     };
   },
   methods: {
@@ -73,9 +60,9 @@ export default {
       this.userPick = pick;
       const picks = ['rock', 'paper', 'scissors'];
       this.randPick = picks[Math.floor(Math.random() * picks.length)];
-      this.setScore();
+      this.determineWinner();
     },
-    setScore: function () {
+    determineWinner: function () {
       if (this.userPick == 'rock') {
         if (this.randPick == 'paper') {
           console.log('Computer wins');
@@ -121,18 +108,18 @@ export default {
   computed: {
     computedUser: function () {
       return {
-        "fa-circle-o-notch fa-spin": this.userPick === null,
-        "fa-hand-rock-o": this.userPick === "rock",
-        "fa-hand-paper-o": this.userPick === "paper",
-        "fa-hand-scissors-o": this.userPick === "scissors"
+        "first-round": this.userPick === null,
+        "rock": this.userPick === "rock",
+        "paper": this.userPick === "paper",
+        "scissors": this.userPick === "scissors"
       };
     },
     computedRand: function () {
       return {
-        "fa-circle-o-notch fa-spin": this.randPick === null,
-        "fa-hand-rock-o": this.randPick === "rock",
-        "fa-hand-paper-o": this.randPick === "paper",
-        "fa-hand-scissors-o": this.randPick === "scissors"
+        "first-round": this.randPick === null,
+        "rock": this.randPick === "rock",
+        "hand": this.randPick === "paper",
+        "scissors": this.randPick === "scissors"
       };
     }
   }
