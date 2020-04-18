@@ -2,7 +2,7 @@
     
 <section id="RockPaperSciccorsContainer">
 
-    <h1>Beat the Computer At Rock, Paper, Sciccors!</h1>
+    <h1>Beat the Computer At Rock, Paper, Scissors!</h1>
 
   
 
